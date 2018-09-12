@@ -19,7 +19,7 @@ public class RoomModule {
     private AppDatabase database;
 
     public RoomModule(Application app) {
-        database = Room.databaseBuilder(app, AppDatabase.class, "db").build();
+        database = Room.databaseBuilder(app, AppDatabase.class, "db").allowMainThreadQueries().build();
     }
 
     @Singleton

@@ -6,7 +6,7 @@ import com.phunware.android.phunwareproducthomework.room.data.ZipCodeDao;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {ZipCode.class}, version = AppDatabase.VERSION)
+@Database(entities = {ZipCode.class}, version = AppDatabase.VERSION, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     static final int VERSION = 1;

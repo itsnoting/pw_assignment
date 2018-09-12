@@ -28,11 +28,13 @@ public class ZipCodeDataSource implements ZipCodeRepository {
 
     @Override
     public long insert(ZipCode zipCode) {
+        this.zipCodeDao.insert(zipCode);
         return 0;
     }
 
     @Override
     public int delete(ZipCode zipCode) {
+        this.zipCodeDao.delete(zipCode);
         return 0;
     }
 }

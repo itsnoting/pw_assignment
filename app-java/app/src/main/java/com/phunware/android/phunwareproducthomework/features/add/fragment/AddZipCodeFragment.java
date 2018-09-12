@@ -10,7 +10,8 @@ import android.widget.Toast;
 import com.phunware.android.phunwareproducthomework.R;
 import com.phunware.android.phunwareproducthomework.WeatherApp;
 import com.phunware.android.phunwareproducthomework.features.detail.fragment.DetailFragment;
-import com.phunware.android.phunwareproducthomework.features.list.fragment.ZipCodeListFragmentDirections;
+import com.phunware.android.phunwareproducthomework.room.data.ZipCode;
+import com.phunware.android.phunwareproducthomework.room.repository.ZipCodeRepository;
 import com.phunware.android.phunwareproducthomework.storage.ZipCodeStore;
 
 import javax.inject.Inject;
@@ -23,6 +24,9 @@ import androidx.navigation.Navigation;
 public class AddZipCodeFragment extends Fragment {
     @Inject
     ZipCodeStore zipCodeStore;
+
+    @Inject
+    ZipCodeRepository zipCodeRepository;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,11 +48,17 @@ public class AddZipCodeFragment extends Fragment {
         final String zipCode = AddZipCodeFragmentArgs.fromBundle(getArguments()).getZipCode();
         getChildFragmentManager().beginTransaction().replace(R.id.fragment_placeholder, DetailFragment.newInstance(zipCode), "frag_detail").commit();
 
-
+        if (zipCodeRepository.findByZipCode(zipCode) != null) {
+            addZipCodeButton.setEnabled(false);
+            addZipCodeButton.setText(R.string.zip_code_saved);
+        } else {
+            addZipCodeButton.setEnabled(true);
+            addZipCodeButton.setText(R.string.add_zip_code);
+        }
         addZipCodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                zipCodeStore.addZipCode(zipCode);
+                zipCodeRepository.insert(new ZipCode(zipCode));
 
                 Toast.makeText(requireContext(), zipCode + " added.", Toast.LENGTH_SHORT).show();
 

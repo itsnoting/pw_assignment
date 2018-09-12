@@ -21,6 +21,7 @@ import com.phunware.android.phunwareproducthomework.WeatherApp;
 import com.phunware.android.phunwareproducthomework.features.list.ZipCodeListViewModel;
 import com.phunware.android.phunwareproducthomework.features.list.adapter.ZipCodeAdapter;
 import com.phunware.android.phunwareproducthomework.model.UnitEnum;
+import com.phunware.android.phunwareproducthomework.room.data.ZipCode;
 import com.phunware.android.phunwareproducthomework.storage.SettingsSharedPreferences;
 
 import java.util.List;
@@ -65,15 +66,18 @@ public class ZipCodeListFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.farenheit) {
-            Log.v("UNIT", "switched to farenheit");
+        if (id == R.id.fahrenheit) {
+            Log.v("UNIT", "switched to fahrenheit");
             item.setChecked(true);
-            sharedPreferences.putData("unit", UnitEnum.farenheit.getUnitSystem());
+            sharedPreferences.putData("unit", UnitEnum.fahrenheit.getUnitSystem());
+            Toast.makeText(getContext(), R.string.switch_f, Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.celsius) {
             Log.v("UNIT", "switched to celsius");
             item.setChecked(true);
             sharedPreferences.putData("unit", UnitEnum.celsius.getUnitSystem());
+            Toast.makeText(getContext(), R.string.switch_c, Toast.LENGTH_SHORT).show();
+
             return true;
         }
         return false;
@@ -90,9 +94,9 @@ public class ZipCodeListFragment extends Fragment {
         recyclerView.setAdapter(viewAdapter);
 
         ZipCodeListViewModel model = ViewModelProviders.of(this).get(ZipCodeListViewModel.class);
-        model.getZipCodes().observe(this, new Observer<List<String>>() {
+        model.getZipCodes().observe(this, new Observer<List<ZipCode>>() {
             @Override
-            public void onChanged(List<String> strings) {
+            public void onChanged(List<ZipCode> strings) {
                 viewAdapter.setItems(strings);
                 viewAdapter.notifyDataSetChanged();
             }
@@ -106,10 +110,10 @@ public class ZipCodeListFragment extends Fragment {
         MenuItem searchViewItem = menu.findItem(R.id.action_search);
 
         Menu options = menu.findItem(R.id.options).getSubMenu();
-        MenuItem farenheit = options.findItem(R.id.farenheit);
+        MenuItem fahrenheit = options.findItem(R.id.fahrenheit);
         MenuItem celsius = options.findItem(R.id.celsius);
-        if (sharedPreferences.getData("unit").equals(UnitEnum.farenheit.getUnitSystem())) {
-            farenheit.setChecked(true);
+        if (sharedPreferences.getData("unit").equals(UnitEnum.fahrenheit.getUnitSystem())) {
+            fahrenheit.setChecked(true);
         } else if (sharedPreferences.getData("unit").equals(UnitEnum.celsius.getUnitSystem())) {
             celsius.setChecked(true);
         }

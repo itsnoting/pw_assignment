@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.phunware.android.phunwareproducthomework.R;
 import com.phunware.android.phunwareproducthomework.features.list.fragment.ZipCodeListFragmentDirections;
+import com.phunware.android.phunwareproducthomework.room.data.ZipCode;
 
 import java.util.List;
 
@@ -15,13 +16,13 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ZipCodeAdapter extends RecyclerView.Adapter<ZipCodeAdapter.ViewHolder> {
-    private List<String> items;
+    private List<ZipCode> items;
 
-    public ZipCodeAdapter(List<String> items) {
+    public ZipCodeAdapter(List<ZipCode> items) {
         this.items = items;
     }
 
-    public void setItems(List<String> items) {
+    public void setItems(List<ZipCode> items) {
         this.items = items;
     }
 
@@ -38,12 +39,12 @@ public class ZipCodeAdapter extends RecyclerView.Adapter<ZipCodeAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        holder.zipCode.setText(items.get(position));
+        holder.zipCode.setText(items.get(position).getZipCode());
 
         holder.zipCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ZipCodeListFragmentDirections.ShowDetail action = ZipCodeListFragmentDirections.showDetail(items.get(position));
+                ZipCodeListFragmentDirections.ShowDetail action = ZipCodeListFragmentDirections.showDetail(items.get(position).getZipCode());
                 Navigation.findNavController(holder.zipCode).navigate(action);
             }
         });

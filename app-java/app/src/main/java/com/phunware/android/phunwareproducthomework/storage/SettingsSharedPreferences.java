@@ -14,7 +14,7 @@ public class SettingsSharedPreferences {
     public SettingsSharedPreferences(SharedPreferences mSharedPreferences) {
         this.mSharedPreferences = mSharedPreferences;
         if (!mSharedPreferences.contains("unit")) {
-            putData("unit", UnitEnum.farenheit.getUnitSystem());
+            putData("unit", UnitEnum.fahrenheit.getUnitSystem());
         }
     }
 

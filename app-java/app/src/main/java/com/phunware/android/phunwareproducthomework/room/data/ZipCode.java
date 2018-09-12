@@ -2,14 +2,16 @@ package com.phunware.android.phunwareproducthomework.room.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "zipCode")
 public class ZipCode {
+
+    public ZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="zid")
     private int id;
 
     @ColumnInfo(name="zip_code")
@@ -19,12 +21,12 @@ public class ZipCode {
         this.id = id;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public int getId() {
+        return this.id;
     }
 
-    public int getId() {
-        return id;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getZipCode() {

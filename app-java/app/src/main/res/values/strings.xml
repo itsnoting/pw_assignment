@@ -12,6 +12,7 @@
 
     <!-- add -->
     <string name="add_zip_code">Add Zip Code</string>
+    <string name="zip_code_saved">Zip Code Already Saved</string>
 
     <!-- list -->
     <string name="menu_search">Search</string>
@@ -21,4 +22,6 @@
     <!-- toast messages -->
     <string name="invalid_zip_length">Invalid zip code length was provided.</string>
     <string name="timeout_message">Network timed out.</string>
+    <string name="switch_f">Unit switched to Fahrenheit</string>
+    <string name="switch_c">Unit switched to Celsius</string>
 </resources>

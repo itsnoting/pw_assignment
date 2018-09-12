@@ -1,7 +1,7 @@
 package com.phunware.android.phunwareproducthomework.model;
 
 public enum UnitEnum {
-    farenheit("imperial"),
+    fahrenheit("imperial"),
     celsius("metric");
 
     UnitEnum(String unitSystem) {

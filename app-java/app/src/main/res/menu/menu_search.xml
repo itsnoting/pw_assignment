@@ -17,8 +17,8 @@
         <menu>
             <group android:id="@+id/unit_group"
                 android:checkableBehavior="single">
-                <item android:id="@+id/farenheit"
-                    android:title="Farenheit"/>
+                <item android:id="@+id/fahrenheit"
+                    android:title="Fahrenheit"/>
                 <item android:id="@+id/celsius"
                     android:title="Celsius"/>
             </group>
