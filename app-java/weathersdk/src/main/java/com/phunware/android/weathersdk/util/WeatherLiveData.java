@@ -1,5 +1,9 @@
 package com.phunware.android.weathersdk.util;
 
+import android.widget.Toast;
+
+import com.phunware.android.weathersdk.R;
+
 import androidx.lifecycle.LiveData;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +34,6 @@ public class WeatherLiveData<T> extends LiveData<T> implements Callback<T> {
 
     @Override
     public void onFailure(Call<T> call, Throwable t) {
-        //not implemented
+        setValue(null);
     }
 }

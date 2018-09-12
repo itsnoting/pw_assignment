@@ -5,6 +5,7 @@ import com.phunware.android.weathersdk.api.OpenWeatherAPI;
 import com.phunware.android.weathersdk.util.WeatherLiveData;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import okhttp3.HttpUrl;
@@ -48,7 +49,8 @@ public class WeatherSDK {
             }
         });
 
-        retrofit = new Retrofit.Builder().client(httpClient.build())
+        retrofit = new Retrofit.Builder()
+                .client(httpClient.build())
                 .baseUrl("https://api.openweathermap.org")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
@@ -57,8 +59,11 @@ public class WeatherSDK {
     }
 
     public WeatherLiveData<Weather> getWeather(@NonNull String zipCode) {
-        Call<Weather> call = weather.getWeather(zipCode, "imperial");
+        return getWeather(zipCode, "imperial");
+    }
 
+    public WeatherLiveData<Weather> getWeather(@NonNull String zipCode, String unit) {
+        Call <Weather> call = weather.getWeather(zipCode, unit);
         return new WeatherLiveData<>(call);
     }
 

@@ -6,6 +6,7 @@
     <string name="detail_loading">Loading</string>
     <string name="detail_current_temp">Current temp:</string>
     <string name="detail_high_temp">High temp:</string>
+    <string name="detail_low_temp">Low temp:</string>
     <string name="detail_sunrise">Sunrise:</string>
     <string name="detail_sunset">Sunset:</string>
 
@@ -14,4 +15,10 @@
 
     <!-- list -->
     <string name="menu_search">Search</string>
+    <string name="options">Options</string>
+    <string name="units">Units</string>
+
+    <!-- toast messages -->
+    <string name="invalid_zip_length">Invalid zip code length was provided.</string>
+    <string name="timeout_message">Network timed out.</string>
 </resources>

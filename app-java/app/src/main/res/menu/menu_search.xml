@@ -7,6 +7,21 @@
         android:icon="@android:drawable/ic_menu_search"
         android:title="@string/menu_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView"
+        app:showAsAction="ifRoom|collapseActionView"
         tools:ignore="AppCompatResource"/>
+    <item
+        android:id="@+id/options"
+        android:title="Units"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_preferences">
+        <menu>
+            <group android:id="@+id/unit_group"
+                android:checkableBehavior="single">
+                <item android:id="@+id/farenheit"
+                    android:title="Farenheit"/>
+                <item android:id="@+id/celsius"
+                    android:title="Celsius"/>
+            </group>
+        </menu>
+    </item>
 </menu>

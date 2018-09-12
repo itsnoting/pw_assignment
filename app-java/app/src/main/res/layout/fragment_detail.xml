@@ -52,12 +52,30 @@
         tools:text="63 F"/>
 
     <TextView
+        android:id="@+id/lowTempLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_low_temp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toBottomOf="@+id/highTempLabel"/>
+
+    <TextView
+        android:id="@+id/lowTempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toEndOf="@+id/lowTempLabel"
+        app:layout_constraintTop_toBottomOf="@+id/highTempLabel"
+        tools:text="63 F"/>
+
+    <TextView
         android:id="@+id/sunriseLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_sunrise"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toBottomOf="@+id/highTempLabel"/>
+        app:layout_constraintTop_toBottomOf="@+id/lowTempLabel"/>
 
     <TextView
         android:id="@+id/sunriseTextView"
@@ -66,7 +84,7 @@
         android:layout_marginStart="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toEndOf="@+id/sunriseLabel"
-        app:layout_constraintTop_toBottomOf="@+id/highTempLabel"
+        app:layout_constraintTop_toBottomOf="@+id/lowTempLabel"
         tools:text="9:00am"/>
 
     <TextView
@@ -123,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="highTempTextView,highTempLabel,sunriseTextView,currentTempTextView,currentTempLabel,zipCodeTextView,sunriseLabel,sunsetTextView,sunsetLabel"
+        app:constraint_referenced_ids="highTempTextView,highTempLabel,lowTempTextView,lowTempLabel,sunriseTextView,currentTempTextView,currentTempLabel,zipCodeTextView,sunriseLabel,sunsetTextView,sunsetLabel"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"/>

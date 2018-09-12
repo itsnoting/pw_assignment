@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.phunware.android.phunwareproducthomework.R;
 import com.phunware.android.phunwareproducthomework.WeatherApp;
 import com.phunware.android.phunwareproducthomework.features.detail.fragment.DetailFragment;
+import com.phunware.android.phunwareproducthomework.features.list.fragment.ZipCodeListFragmentDirections;
 import com.phunware.android.phunwareproducthomework.storage.ZipCodeStore;
 
 import javax.inject.Inject;
@@ -41,8 +42,8 @@ public class AddZipCodeFragment extends Fragment {
         Button addZipCodeButton = view.findViewById(R.id.addZipCodeButton);
 
         final String zipCode = AddZipCodeFragmentArgs.fromBundle(getArguments()).getZipCode();
-
         getChildFragmentManager().beginTransaction().replace(R.id.fragment_placeholder, DetailFragment.newInstance(zipCode), "frag_detail").commit();
+
 
         addZipCodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
