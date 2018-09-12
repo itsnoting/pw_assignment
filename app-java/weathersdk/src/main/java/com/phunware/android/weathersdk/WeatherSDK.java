@@ -41,7 +41,7 @@ public class WeatherSDK {
                 Request original = chain.request();
                 HttpUrl originalHttpUrl = original.url();
 
-                HttpUrl newRequestURL = originalHttpUrl.newBuilder().addQueryParameter("appid", "7f2297623019f78f11a5761b4ae8871c")
+                HttpUrl newRequestURL = originalHttpUrl.newBuilder().addQueryParameter("appid", BuildConfig.ApiKey /*"7f2297623019f78f11a5761b4ae8871c"*/)
                         .build();
 
                 Request request = original.newBuilder().url(newRequestURL).build();
