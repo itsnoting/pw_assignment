@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/zipCodeListFragment">
+
+    <fragment
+        android:id="@+id/addZipCodeFragment"
+        android:name="com.phunware.android.phunwareproducthomework.features.add.fragment.AddZipCodeFragment"
+        android:label="Add New Zip Code">
+        <argument android:name="zipCode"/>
+    </fragment>
+    <fragment
+        android:id="@+id/zipCodeListFragment"
+        android:name="com.phunware.android.phunwareproducthomework.features.list.fragment.ZipCodeListFragment"
+        android:label="Phunware Homework Assignment"
+        tools:layout="@layout/fragment_zip_code_list">
+        <action
+            android:id="@+id/addZipCode"
+            app:destination="@id/addZipCodeFragment"
+            app:popUpTo="@+id/zipCodeListFragment"/>
+        <action
+            android:id="@+id/showDetail"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@+id/zipCodeListFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.phunware.android.phunwareproducthomework.features.detail.fragment.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+
+        <argument android:name="zipCode"/>
+    </fragment>
+</navigation>
